@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Header Menu</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      position: relative;
+    }
+
+    .logo {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 20px;
+      background-color: #444;
+      border: 1px solid #555;
+      border-radius: 5px;
+      width: 200px;
+      z-index: 10;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .dropdown a:hover {
+      background-color: #555;
+    }
+
+    .nav-right a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-right a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <!-- Left side -->
+    <div class="logo" id="logo">
+      🔰 
+      <div class="dropdown" id="dropdownMenu">
+        <a href="#">Logout</a>
+        <a href="#">Teach and Learn</a>
+        <a href="#">Mentorship</a>
+        <a href="#" onclick="alert('hello')">Etc</a>
+      </div>
+    </div>
+
+    <!-- Right side -->
+    <div class="nav-right">
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+  </header>
+
+  <script>
+    const logo = document.getElementById("logo");
+    const dropdown = document.getElementById("dropdownMenu");
+
+    logo.addEventListener("click", () => {
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+    // Optional: Close dropdown if clicked outside
+    document.addEventListener("click", (e) => {
+      if (!logo.contains(e.target)) {
+        dropdown.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>

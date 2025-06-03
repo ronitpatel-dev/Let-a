@@ -1,0 +1,27 @@
+* {
+    margin: 0%;
+}
+
+.Course-1,
+.Notes-1,
+.Live-1,
+.Recorded-1,
+.Test-1 {
+    background-color: white;
+    border: 2px solid black;
+    padding: 15px;
+    font-size: 20px;
+    margin: 28px 0;
+    border-radius: 15px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.Course-1:hover,
+.Notes-1:hover,
+.Live-1:hover,
+.Recorded-1:hover,
+.Test-1:hover{
+    box-shadow: 0px 0px 10px blueviolet;
+    font-weight: bolder;
+} 

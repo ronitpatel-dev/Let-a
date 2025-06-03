@@ -1,0 +1,39 @@
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form Page</title>
+  <link href="form.css" rel="stylesheet" />
+</head>
+
+<body>
+  <form action>
+    <span><a href="home.html">❌</a></span>
+    <fieldset>
+      <input type="text" name="name" placeholder="Enter your name" required><br><br>
+      <input type="email" name="email" placeholder="Enter Your Email" required><br><br>
+      <input type="number" name="number" placeholder="Enter Your Mob. Number" required><br><br>
+
+      <input list="skillsList" name="Skill" placeholder="Choose Your Skill">
+      <datalist id="skillsList">
+        <option value="Python">
+        <option value="Java">
+        <option value="JavaScript">
+        <option value="C++">
+        <option value="SQL">
+        <option value="HTML/CSS">
+        <option value="React.js">
+        <option value="Node.js">
+        <option value="MSC-IT">
+      </datalist><br><br>
+
+      <textarea name="reason" placeholder="Why we should hire you?" required></textarea><br><br>
+
+      <button type="submit" onclick="alert('submitted')" >Submit</button>
+    </fieldset>
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamental of Computers</title>
+    <link href="styl.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="logo" id="logo">
+            🔰
+            <div class="dropdown" id="dropdownMenu">
+                <a href="index.html" onclick="alert('Sucessfully Logout !')">Logout</a>
+                <a href="form.html">Teach and Learn</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="home.html">Home</a>
+            <a href="#AboutUs">About Us</a>
+            <a href="#Contact">Contact</a>
+        </div>
+    </header>
+
+    <div id="main">
+        <div id="inerr-main">
+            <div id="box1"><a href="#intro"> Introduction to Computers</a></div>
+            <div id="box2"><a href="#Characteristics"> Characteristics of Computers</a></div>
+            <div id="box3"><a href="#Classification"> Classification of Computers</a></div>
+            <div id="box4"><a href="#Components"> Components of a Computer System</a></div>
+            <div id="box5"><a href="#CPU"> Central Processing Unit (CPU)</a></div>
+            <div id="box6"><a href="#Memory"> Memory and Storage Devices </a></div>
+            <div id="box7"><a href="#Software"> Software: System vs Application</a></div>
+            <div id="box8"><a href="#os"> Operating Systems Basics </a></div>
+            <div id="box9"><a href="#CpLanguage">Computer Security</a> </div>
+            <div id="box10"> <a href="#test1">Test</a></div>
+        </div>
+
+        <div class="main-content">
+            <div id="intro">
+                <h1>What is Computer</h1><br>
+                <img src="images/computer.jpg" alt="" id="img1"><br><Br>
+                <p> Computer is an electronic device that takes input, processes it according to given instructions,
+                    stores the data, and gives output.
+                    It can perform tasks like calculations, writing, drawing, playing videos, or connecting to the
+                    internet.</p><br><br>
+                <p>
+                    <b> Basic Functions of a Computer:</b><br><br>
+                    Input – Accepts data (e.g., from a keyboard, mouse, touchscreen).<br>
+                    Processing – Uses a CPU (Central Processing Unit) to perform calculations and make decisions.<br>
+                    Storage – Saves data temporarily (RAM) or permanently (hard drives, SSDs).<br>
+                    Output – Shows results (e.g., on a monitor, speakers, printer).<br>
+                    Control – Coordinates all the above activities.<br>
+                </p>
+            </div><br><br>
+
+            <div id="Characteristics">
+                <h1>Characteristics Of Computer</h1><br>
+                <p><b> 1. Speed</b><br>
+                    A computer can perform millions of operations in just one second.<br>
+                    It works much faster than humans when it comes to calculations or processing data.<br><br>
+                    <b> 2. Accuracy</b><br>
+                    Computers are highly accurate.<br>
+                    They rarely make mistakes unless there is an error in the program or data.<br><br>
+
+                    <b> 3. Automation</b><br>
+                    Once programmed, a computer can work automatically without user intervention until the task is
+                    complete.<br><br>
+
+                    <b> 4. Versatility</b><br>
+                    A computer can perform different types of tasks—writing, drawing, playing music, calculations,
+                    internet browsing, programming, and more.<br><br>
+
+                    <b> 5. Diligence</b><br>
+                    Unlike humans, computers don’t get tired or bored.<br>
+                    They can work continuously for long hours without any drop in performance.<br><br>
+
+                    <b>6. Storage</b><br>
+                    Computers can store large amounts of data permanently and retrieve it whenever needed.
+                    They can hold everything from documents and videos to entire databases.<br><br>
+
+                    <b>7. Multitasking</b>
+                    Computers can perform many tasks at the same time. For example, you can listen to music while
+                    writing a document and downloading a file.<br><br>
+
+                    <b> 8. Reliability</b><br>
+                    Computers give consistent performance over time, making them very reliable for daily tasks and
+                    complex operations.
+                </p><br><br>
+            </div>
+            <div id="Classification">
+                <h1>Classification of Computer</h1><br><br>
+                <div id="img12">
+                    <img src="images/supercp.jpg" alt="Supercomputer" id="img2">
+                    <img src="images/maincp.jpg" alt="Mainframe" id="img2">
+                    <img src="images/minicp.jpg" alt="Minicomputer" id="img2">
+                    <img src="images/PC.jpg" alt="PC" id="img2">
+                    <img src="images/wscp.jpg" alt="Workstation" id="img2"><br>
+                </div>
+                <B> 1. Supercomputer</B><br>
+                Powerful & fastest computers.
+                Used for: weather forecasting, scientific research, simulations (e.g., nuclear, space).
+                Example: PARAM, IBM Summit.<br><br>
+
+                <b> 2. Mainframe Computer</b><br>
+                Large, powerful systems used by organizations for bulk data processing.
+                Supports hundreds or thousands of users simultaneously.
+                Used by: banks, airlines, government.
+                Example: IBM Z series.<br><br>
+
+                <b> 3. Minicomputer</b><br>
+                Smaller than mainframes, but more powerful than PCs.
+                Used in medium-sized businesses.
+                Example: PDP-11, VAX.<br><br>
+
+                <b> 4. Microcomputer (Personal Computer)</b><br>
+                Most common type, used by individuals.
+                Types include:<br>
+                Desktop
+                Laptop
+                Tablet
+                Smartphone
+                Example: Dell Laptop, iMac, iPhone.<br><br>
+
+                <b> 5. Workstation</b><br>
+                High-performance PC for professionals (graphics, architecture, video editing).<br>
+                More powerful than standard desktops.<br>
+                Example: HP Z Series, Apple Mac Pro.<br><br>
+
+                <b>6. Embedded Computer</b><br>
+                Built into other machines.<br>
+                Performs specific control functions.<br>
+                Found in: microwaves, cars, washing machines, ATMs.<br>
+                Example: Microcontrollers inside smart appliances.<br><br>
+            </div>
+            <div id="Components">
+                <h1>Components of Computer</h1><br><br>
+                <h3>1.Input devices</h3><br>
+                Input devices are hardware components used to send data or control signals into a computer or other
+                electronic systems. They allow users or other systems to provide data and commands.<br><br>
+
+                <b>Keyboard:</b><br>
+                The most common input device, it allows users to enter text, numbers, and commands into the computer by
+                pressing keys.<br><br>
+
+                <b>Mouse:</b><br>
+                A pointing device that controls the movement of the cursor on the screen, allowing users to interact
+                with graphical elements, select, drag, and drop.<br><br>
+
+                <b>Microphone:</b><br>
+                Captures sound waves and converts them into electrical signals that the computer can process (for voice
+                commands, audio recording, or communication).<br><br>
+
+                <b>Scanner:</b><br>
+                Converts physical documents or images into digital formats by capturing the visual data as
+                pixels.<br><br>
+
+                <b>Webcam:</b><br>
+                Captures live video input that can be processed or streamed.<br><br>
+
+                <b>Touchscreen (as input):</b><br>
+                Allows users to interact directly with the display by touching it, often used in smartphones and
+                tablets.<br><br>
+
+                <b>Game Controllers and Joysticks:</b><br>
+                Specialized input devices designed for gaming to control movements and actions.<br><br>
+
+                <h3>2. Output Devices</h3><br>
+                Output devices receive data from the computer and convert it into a form usable by humans or other
+                systems. Their purpose is to display, print, or project the results of computer processing.<br><br>
+
+                <b>Monitor/Display:</b><br>
+                Displays visual information as text, images, videos, and graphical interfaces.<br><br>
+
+                <b>Printer:</b><br>
+                Converts digital documents and images into hardcopy printed on paper.<br><br>
+
+                <b>Speakers/Headphones:</b><br>
+                Output audio signals, converting electrical signals into sound waves for music, voice, or system
+                sounds.<br><br>
+
+                <b>Projector:</b><br>
+                Projects visual output onto a large screen or surface, useful for presentations or
+                entertainment.<br><br>
+
+                <b>LED Indicators:</b><br>
+                Small lights that indicate the status of hardware or systems (e.g., power on/off, errors).<br><br>
+
+                <b>Haptic Devices:</b><br>
+                Provide tactile feedback to users, often used in gaming controllers or touchscreens.<br><br>
+
+                <h3>3. Input/Output (I/O) Devices</h3><br>
+                These devices can both send data to the computer (input) and receive data from the computer (output).
+                They are essential in systems that require interaction or data transfer in both directions.<br><br>
+
+                <b>Touchscreen (as input/output):</b><br>
+                Acts as a display (output) and a sensor for touch input simultaneously.<br><br>
+
+                <b>External Hard Drives / USB Flash Drives:</b><br>
+                Can store data sent to them by the computer (output) and send stored data back to the computer
+                (input).<br><br>
+
+                <b>Network Interface Cards (NICs):</b><br>
+                Enable computers to send and receive data over networks (input and output of network packets).<br><br>
+
+                <b>Modems:</b><br>
+                Convert digital data from the computer into signals that can travel over phone lines or cable (output)
+                and convert incoming signals back into digital data (input).<br><br>
+
+                <b>Multifunction Printers (MFPs):</b><br>
+                Combine printing (output), scanning (input), copying, and faxing.<br><br>
+
+                <b>Smartphones and Tablets:</b><br>
+                Contain various sensors and output components to receive user inputs and display multimedia
+                outputs.<br><br>
+                <br>
+            </div>
+            <div id="CPU">
+                <h1>CPU-Central Processing Unit </h1><br><br>
+                <img src="images/cpu.jpg" alt="CPU" id="img1"><br><br>
+                <b> What is a CPU?</b><br>
+                The Central Processing Unit (CPU) is a key hardware component in computers and many electronic devices.
+                It processes instructions from programs, carrying out calculations and control operations.<br><br>
+
+                How does a CPU work?<br>
+                Fetch: The CPU gets (fetches) an instruction from the computer’s memory.
+
+                Decode: It interprets what the instruction means.
+
+                Execute: It performs the action—like calculating a number or moving data.
+
+                Store: It saves the result back to memory or registers.
+
+                This cycle repeats billions of times per second.<br><br>
+
+                Components of a CPU<br>
+                Arithmetic Logic Unit (ALU):<br>
+                Performs mathematical operations (add, subtract, multiply) and logical operations (AND, OR, NOT).<br>
+
+                Control Unit (CU):<br>
+                Manages and directs the flow of data between the CPU, memory, and peripherals.<br>
+
+                Registers:<br>
+                Very fast, tiny storage locations inside the CPU holding data, instructions, or addresses temporarily
+                during processing.<br>
+
+                Cache:<br>
+                Small but very fast memory close to the CPU cores to speed up access to frequently used data.<br><br>
+
+                <b>CPU Characteristics</b><br>
+                Clock Speed:<br>
+                Measured in gigahertz (GHz), it determines how many instruction cycles the CPU can perform per
+                second.<br>
+
+                Cores:<br>
+                Modern CPUs have multiple cores (dual-core, quad-core, etc.). Each core can process instructions
+                independently, improving multitasking and performance.<br>
+
+                Threads:<br>
+                Some CPUs can handle multiple threads per core, which helps with running multiple tasks
+                simultaneously.<br><br>
+
+                <b> Types of CPUs</b><br>
+                Desktop CPUs:<br>
+                High-performance CPUs for personal computers.<br>
+
+                Mobile CPUs:<br>
+                Optimized for low power consumption in laptops, tablets, smartphones.<br>
+
+                Server CPUs:<br>
+                Designed for heavy workloads and reliability in data centers.<br><br>
+
+                <b>Why is the CPU important?</b><br>
+                Without the CPU, your device can’t run software or respond to commands. It’s the central hub that
+                processes all your programs, from your operating system to games and apps.<br><br>
+            </div>
+            <div id="Memory">
+                <h1>Memory and Storage Device</h1><br><br>
+                <b>Memory (Primary Memory)</b><br>
+                Definition: Memory in a computer usually refers to RAM (Random Access Memory).<br>
+
+                Purpose: It temporarily stores data and instructions that the CPU needs while performing tasks.<br><br>
+
+                <b> Characteristics:</b><br>
+
+                Volatile: Data is lost when the computer is turned off.<br>
+
+                Fast: Much faster than storage devices.<br>
+
+                Used for: Running programs, active processes, and quick access to data.<br><br>
+
+                <b>Storage Devices (Secondary Storage)</b><br>
+                Definition: Devices used to store data permanently or long-term.<br>
+
+                Examples:<br>
+
+                Hard Disk Drive (HDD)<br>
+
+                Solid State Drive (SSD)<br>
+
+                USB Flash Drive<br>
+
+                Optical Discs (CD/DVD)<br><br>
+
+                <b>Characteristics:</b><br>
+
+                Non-volatile: Data stays even when the computer is off.<br>
+
+                Slower than RAM: But stores much larger amounts of data.<br>
+
+                Used for: Saving files, programs, OS, and data long-term.<br><br>
+            </div>
+            <div id="Software">
+                <h1>Software System & Application</h1><br><br>
+                <b>Software System</b><br><br>
+                A software system is a broad term for a collection of programs, tools, and components that work together
+                to perform complex tasks.<br>
+
+                It includes operating systems, middleware, utilities, databases, and applications.<br>
+
+                Examples: Windows OS, Linux OS, database management systems (like MySQL), or an enterprise resource
+                planning (ERP) system.<br>
+
+                It provides the foundation and infrastructure for applications to run.<br>
+
+                Usually complex, often involves multiple interacting parts.<br><br>
+
+                <b>Application (Application Software)</b><br><br>
+                An application is a specific program designed to perform a particular task or group of tasks for the
+                user.<br>
+
+                Examples: Microsoft Word, web browsers (Chrome, Firefox), games, photo editors.<br>
+
+                Runs on top of the software system (usually the OS).<br>
+
+                Focused on end-user needs.<br><br>
+            </div>
+            <div id="os">
+                <h1>Operating System</h1>
+                <b> What is an Operating System (OS)?</b><br>
+                An Operating System (OS) is software that acts as an interface between the computer hardware and the
+                user. It manages the computer's hardware resources and provides services for computer programs.<br><br>
+
+                <b>Main Functions of an OS:</b><br><br>
+                Process Management:<br>
+                Manages running programs (processes), allowing multitasking, scheduling CPU time to different
+                processes.<br>
+
+                Memory Management:<br>
+                Keeps track of each byte in a computer’s memory and allocates space to programs when needed.<br>
+
+                File System Management:<br>
+                Organizes files on storage devices (hard drives, SSDs), including saving, reading, and writing
+                files.<br>
+
+                Device Management:<br>
+                Controls and manages input/output devices like keyboard, mouse, printers, etc., using device
+                drivers.<br>
+
+                Security and Access Control:<br>
+                Protects data and resources from unauthorized access.<br>
+
+                User Interface:<br>
+                Provides a way for users to interact with the computer, either through command-line (CLI) or graphical
+                user interface (GUI).<br><br>
+
+                <b>Examples of Operating Systems:</b><br><br>
+                Windows (Microsoft)<br>
+
+                macOS (Apple)<br>
+
+                Linux (Open-source)<br>
+
+                Android (Mobile OS)<br>
+
+                iOS (Apple mobile OS)<br><br>
+
+                <b> Why is OS important?</b><br><br>
+                Without an OS, you would have to communicate directly with the hardware, which is very complex.<br>
+
+                It makes the computer easy to use and allows multiple programs to run smoothly.<br><br>
+
+
+            </div>
+            <div id="CpLanguage">
+                <h1>Computer Security</h1><br><br>
+                <b> What is Computer Security?</b><br>
+                It means protecting computers and data from being stolen, damaged, or accessed by unauthorized
+                people.<br><br>
+
+                <b>Common Threats</b><br>
+                These include viruses, malware, phishing attacks (fake emails to steal info), and hackers trying to
+                break into systems.<br><br>
+
+                <b>How to Protect Yourself</b><br>
+                Use strong passwords, keep your software updated, and avoid clicking suspicious links or downloading
+                unknown files.<br><br>
+
+                <b>Tools for Security</b><br>
+                Firewalls block unwanted network traffic, antivirus software detects and removes harmful programs, and
+                encryption keeps data private by coding it.<br><br>
+
+                <b>Importance of Backup and Recovery</b><br>
+                Regularly saving copies of your data helps you restore it if something goes wrong, like a cyberattack or
+                hardware failure.<br><br>
+
+            </div>
+        </div>
+    </div><!--
+    <footer style="padding-top: 50px;">
+        <div id="AboutUs">
+            About Us <br>Let's Learn is your trusted online learning platform, dedicated to
+            making computer education accessible and engaging for everyone.
+            Whether you're a complete beginner or looking to sharpen your skills, we offer a variety of courses
+            including Python, Basic Computer Fundamentals, MSCIT, JavaScript, HTML, CSS, and more. Our goal is to
+            empower learners with practical knowledge and skills that can open new doors in the digital world.
+        </div>
+        <div id="Contact">
+            Contact Us<br>
+            Have questions or need assistance? We're here to help!
+            📧 Email: support@letslearn.com
+            📞 Phone: +91-XXXXXXXXXX
+            🌐 Website: www.letslearn.com
+
+            Follow us on social media to stay updated on new courses and offers.
+            👍 Facebook | 📷 Instagram | 🐦 Twitter | 💼 LinkedIn
+
+        </div>
+    </footer>-->
+</body>
+<script src="script.js"></script>
+
+</html>

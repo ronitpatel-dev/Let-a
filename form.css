@@ -1,0 +1,75 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+body {
+    background: linear-gradient(135deg, #8e44ad, #3498db);
+}
+
+span a {
+    position: relative;
+    left: 225px;
+    bottom: 10px;
+    color: black;
+    text-decoration: none;
+    text-align: right;
+    font-size: large;
+
+}
+
+form {
+    background-color: white;
+    position: relative;
+    top: 100px;
+    left: 500px;
+    padding: 12px;
+    height: auto;
+    width: 250px;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 15px;
+}
+
+fieldset {
+    border-radius: 25px;
+}
+
+input,
+textarea {
+    padding: 9px;
+    position: relative;
+    top: 15px;
+    left: 25px;
+    width: 170px;
+    border-radius: 2px;
+}
+
+button {
+    border: 2px solid black;
+    border-radius: 10px;
+    position: relative;
+    top: 10px;
+    bottom: 50px;
+    left: 75px;
+    height: 35px;
+    width: 90px;
+    padding: 10px;
+    background: linear-gradient(50deg, black, gray);
+}
+
+button a{
+    text-decoration: none;
+}
+button:hover {
+    background: linear-gradient(100deg, black, gray, white);
+    color: rgb(226, 6, 6);
+    font-weight: bold;
+}
+textarea:hover{
+    background-color: rgb(213, 209, 209);
+}
+input:hover {
+    border-color: gray;
+    background-color: rgb(213, 209, 209);
+}

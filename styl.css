@@ -1,0 +1,209 @@
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+nav ul {
+  background-color: rgb(16, 15, 15);
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 100px;
+  padding: 15px 50px 0;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
+
+nav a:hover {
+  color: rgb(25, 5, 255);
+}
+
+#main-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#main {
+  background-color: rgb(255, 80, 232);
+  width: auto;
+  height: auto;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+
+}
+
+#inerr-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+  background-color: #8b075f;
+  padding: 10px;
+  border-radius: 10px;
+  height: 550px;
+  place-self: fixed;
+  position: fixed;
+}
+
+#inerr-main:hover {
+  background-color: #370226;
+}
+
+#box1,
+#box2,
+#box3,
+#box4,
+#box5,
+#box6,
+#box7,
+#box8,
+#box9,
+#box10 {
+  background-color: #f6b0df;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #0f0f0f;
+  border-radius: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+  height: 12px;
+  text-decoration: none;
+  width: 230px;
+  margin: 5px;
+}
+
+#box:hover {
+  box-shadow: 4px 5px 10px wheat;
+  font-size: large;
+  text-shadow: #75034f;
+
+}
+
+#inerr-main a {
+  text-decoration: none;
+  color: #0f0f0f;
+
+}
+
+.main-content {
+  position: relative;
+  top: 0px;
+  left: 300px;
+  bottom: 1000px;
+  background-color: #e696cb;
+  width: 1000px;
+  padding: 10px;
+  margin: 10px;
+}
+
+#intro,
+#Characteristics,
+#os,
+#CpLanguage,
+#Software,
+#Memory,
+#Classification,
+#CPU,
+#Components {
+  padding: 25px;
+  border-radius: 25px;
+  margin: 10px 12px;
+}
+
+.main-content h1 {
+  font-style: italic;
+  text-shadow: 0px 0px 5px white;
+}
+
+#intro {
+  background-color: #f348ba;
+}
+
+#Characteristics {
+  background-color: #f16dc5;
+  border-radius: 25px;
+}
+
+#Classification {
+  background-color: #f348ba;
+}
+
+#os {
+  background-color: #f16dc5;
+}
+
+#Memory {
+  background-color: #8b075f;
+}
+#CPU {
+  background-color:#f16dc5;
+}
+
+#Software {
+  background-color: #fc03a9;
+}
+
+#CpLanguage {
+  background-color: #f16dc5;
+}
+
+#Components {
+  background-color: #c90587;
+}
+
+#img1 {
+  height: 220px;
+  border: 2px solid black;
+  border-radius: 25px;
+  box-shadow: 0px 0px 8px white;
+  transition: all 2s ease-in 0s;
+  animation: imgAnim1 2s linear 0s infinite;
+}
+
+@keyframes imgAnim1 {
+  from {
+    box-shadow: 0px 0px 10px white;
+    border-radius: 25px;    
+    transform: rotateY('0deg');
+  }  
+  to {
+    box-shadow: 0px 0px 10px red;
+    border-radius: 50px;
+    transform: rotateX('45deg');
+
+  }
+}
+#img2{
+  height: 100px;
+  width: 150px;
+  margin: 5px 13px;
+  border: 2px solid black;
+  border-radius: 25px;
+  transition: all 2s ease 0s;
+  animation: img2A 2s ease-in-out 0s infinite reverse;
+}
+@keyframes img2A {
+  from{
+    transform: translateX(0px, 0px);
+    box-shadow: 0px 0px 15px rgb(218, 122, 122);
+    
+  }
+  to{
+    transform: translateX(50px ,100px);
+    box-shadow: 0px 0px 15px rgb(245, 2, 2);
+    
+  }
+}
+
+footer {
+  background-color: rgb(202, 128, 18);
+}

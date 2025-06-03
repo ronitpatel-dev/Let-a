@@ -1,0 +1,105 @@
+.htmlSub {
+    height: auto;
+    width: 432px;
+    background-color: rgb(252, 250, 250);
+    border: 2px black solid;
+    border-radius: 6px;
+    color: rgb(7, 7, 7);
+    margin: 10px;
+
+    /* text-align: center;*/
+}
+
+.inner0,
+.inner1,
+.inner2,
+.inner3,
+.inner4,
+.inner5 {
+    background-color: blueviolet;
+    height: auto;
+    width: auto;
+    padding: 8px;
+    margin: 6px 8px;
+    border: 2px solid black;
+    border-radius: 25px;
+    animation: animSub 2s ease-in-out 0s infinite normal;
+}
+
+@keyframes animSub {
+    from {
+        box-shadow: 0px 0px 8px white;
+    }
+    to {
+        box-shadow: 0px 0px 20px rgb(59, 4, 110);
+    }
+
+}
+
+.inner1 img:hover,
+.inner2 img:hover,
+.inner3 img:hover,
+.inner4 img:hover,
+.inner5 img:hover {
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px white;
+}
+
+.inner1 img  {
+    height: 177px;
+    width: 290px;
+    border: 2px solid black;
+    border-radius: 4px;
+    margin: 15px 60px;
+}
+
+.inner2 img {
+    height: 177px;
+    width: 290px;
+    border: 2px solid black;
+    border-radius: 4px;
+    margin: 15px 60px;
+}
+
+.inner3 img {
+    height: 177px;
+    width: 290px;
+    border: 2px solid black;
+    border-radius: 4px;
+    margin: 15px 60px;
+}
+
+.inner4 img {
+    height: 177px;
+    width: 290px;
+    border: 2px solid black;
+    border-radius: 4px;
+    margin: 15px 60px;
+}
+
+.inner5 img {
+    height: 177px;
+    width: 290px;
+    border: 2px solid black;
+    border-radius: 4px;
+    margin: 15px 60px;
+}
+
+button {
+    height: 40px;
+    width: 100px;
+    border-radius: 15px;
+    background-color: rgb(215, 182, 245);
+    margin: 5px;
+}
+
+button:hover {
+    background-color: rgb(51, 37, 65);
+    color: white;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px white;
+}
+
+p {
+    color: white;
+}

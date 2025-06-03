@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - Let's Learn</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #00b894, #0984e3);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .register-box {
+      background-color: #fff;
+      padding: 30px 25px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 350px;
+    }
+
+    .register-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2d3436;
+    }
+
+    .register-box input[type="text"],
+    .register-box input[type="number"],
+    .register-box input[type="email"],
+    .register-box input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .register-box input:focus {
+      border-color: #0984e3;
+      outline: none;
+    }
+
+    .register-box p {
+      margin: 10px 0 5px;
+      font-weight: bold;
+      color: #2d3436;
+    }
+
+    .gender-group {
+      margin-bottom: 15px;
+    }
+
+    .gender-group label {
+      margin-right: 10px;
+    }
+
+    .register-box button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0984e3;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .register-box button:hover {
+      background-color: #0652dd;
+      transform: scale(1.02);
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .login-link a {
+      color: #0984e3;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="register-box">
+    <h2>Register</h2>
+
+    <form action="index.html" method="GET">
+      <input type="text" name="name" id="name" placeholder="Enter Username" required>
+      <input type="number" name="age" id="age" placeholder="Enter Age" required>
+      <input type="email" name="email" id="email" placeholder="Enter Email" required>
+      <input type="password" name="pass" id="pass" placeholder="Enter Password" required>
+
+      <p>Select Gender</p>
+      <div class="gender-group">
+        <label><input type="radio" name="gender" value="male" required> Male</label>
+        <label><input type="radio" name="gender" value="female"> Female</label>
+        <label><input type="radio" name="gender" value="other"> Other</label>
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <p class="login-link">
+      Already Registered? <a href="index.html">Login</a>
+    </p>
+  </div>
+
+</body>
+</html>
