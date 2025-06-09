@@ -1,36 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link href="style.css" rel="stylesheet">
+    <link href="course.css" rel="stylesheet">
+
 </head>
+
 <body>
+
     <header>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="home.html">Service</a></li>
-                <li><a href="home.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="logo" id="logo">
+            🔰
+            <div class="dropdown" id="dropdownMenu">
+                <a href="index.html" onclick="alert('Sucessfully Logout !')">Logout</a>
+                <a href="form.html">Teach and Learn</a>
+                <a href="#" onclick="alert('We will provide soon')">Mentorship</a>
+                <a href="#" onclick="alert('hello')">Etc</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="home.html">Home</a>
+            <a href="#AboutUs">About Us</a>
+            <a href="#Contact">Contact</a>
+        </div>
     </header>
 
-    <!-- Wrap both main and content in a flex container -->
     <div class="layout">
         <div class="main">
-           <a href="Course.html"><div class="cp">Course</div></a>
-            <a href="Nots.html"><div class="MSC-IT">Notes</div></a>
-            <a href="Live.html"><div class="html">Live Classe</div></a>
-            <a href="Rec.html"><div class="CSS">Recorded</div></a>
-            <a href="JavaScript.html"><div class="JavaScript">F&Q</div></a>
-            <a href="Python.html"><div class="Python">Test</div><br><br></a>
+            <div class="cp">Course</div>
+            <div class="MSC-IT" onclick="showNotes()">Notes</div>
+            <div class="html" onclick="alert('We will provide soon !!')">Live Classe</div>
+            <div class="CSS" onclick="alert('We will provide soon !!')">Recorded</div>
+            <div class="JavaScript">F&Q</div>
+            </a>
+            <a href="test1.html">
+                <div class="Python">Test</div><br>
+            </a>
         </div>
 
-        <div id="content"></div>
-    </div>
+        <div id="content">
+            <marquee behavior="alternate" direction="right" width="1500px">hello</marquee>
+            <!--
+            <div id="up-div">
+                <p>Ms -office</p>
+            </div>
+            -->
 
-    <footer>FOOTER</footer>
+            <div id="inner-Content-1">
+                <h3>🔹 1. MS Word – Word Processing</h3><br>
+                1.Introduction to Word interface.<br>
+                2.Creating and saving documents.<br>
+                3.Formatting text and paragraphs.<br>
+                4.Inserting tables, images, and shape0s.<br>
+                5.Page layout and printing options.<br>
+                6.Using headers, footers, and page numbers.<br>
+                7.Mail Merge (basic)<br><br>
+
+                <h3>🔹 2. MS Excel – Spreadsheets</h3><br>
+                1.Introduction to Excel interface.<br>
+                2.Working with cells, rows, and columns.<br>
+                3.Basic formulas and functions (SUM, AVERAGE, etc.).<br>
+                4.Formatting cells and data types.<br>
+                5.Sorting and filtering data.<br>
+                6.Creating charts and graphs.<br>
+                7.Introduction to Pivot Tables<br><br>
+
+                <h3> 🔹 3. MS PowerPoint – Presentations</h3><br>
+                1.Introduction to PowerPoint interface.<br>
+                2.Creating and organizing slides.<br>
+                3.Applying themes and slide layouts.<br>
+                4.Adding text, images, and videos.<br>
+                5.Using transitions and animations.<br>
+                6.Slide show and presentation tips.<br>
+                7.Printing and exporting slides.<br>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+
+
+    <footer>
+        <div id="AboutUs">
+            About Us <br>Let's Learn is your trusted online learning platform, dedicated to
+            making computer education accessible and engaging for everyone.
+            Whether you're a complete beginner or looking to sharpen your skills, we offer a variety of courses
+            including Python, Basic Computer Fundamentals, MSCIT, JavaScript, HTML, CSS, and more. Our goal is to
+            empower learners with practical knowledge and skills that can open new doors in the digital world.
+        </div>
+        <div id="Contact">
+            Contact Us<br>
+            Have questions or need assistance? We're here to help!<br>
+            📧 Email: support@letslearn.com
+            📞 Phone: +91-XXXXXXXXXX
+            🌐 Website: www.letslearn.com
+
+            Follow us on social media to stay updated on new courses and offers.
+            <br>👍 Facebook | 📷 Instagram | 🐦 Twitter | 💼 LinkedIn
+
+        </div>
+    </footer>
 </body>
+
 </html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learning Website</title>
+  <style>
+    #container {
+      display: flex;
+      gap: 20px;
+    }
+    #notes {
+      width: 200px;
+      background: #f0f0f0;
+      padding: 10px;
+    }
+    .note-item {
+      padding: 8px;
+      margin-bottom: 5px;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+    .note-item:hover {
+      background-color: #e6f7ff;
+    }
+    #viewer {
+      flex: 1;
+    }
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: 1px solid #ccc;
+    }
+    #downloadBtn {
+      margin-top: 10px;
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>My Learning Notes</h2>
+
+<div id="container">
+  <!-- Notes list -->
+  <div id="notes">
+    <div class="note-item" onclick="loadPDF('pdfs/notes1.pdf')">📄 Notes 1</div>
+    <div class="note-item" onclick="loadPDF('pdfs/notes2.pdf')">📄 Notes 2</div>
+    <div class="note-item" onclick="loadPDF('pdfs/notes3.pdf')">📄 Notes 3</div>
+    <div class="note-item" onclick="loadPDF('pdfs/notes4.pdf')">📄 Notes 4</div>
+    <div class="note-item" onclick="loadPDF('pdfs/notes5.pdf')">📄 Notes 5</div>
+  </div>
+
+  <!-- PDF Viewer -->
+  <div id="viewer">
+    <iframe id="pdfFrame" src=""></iframe>
+    <a id="downloadBtn" href="#" download>⬇️ Download PDF</a>
+  </div>
+</div>
+
+<script>
+  function loadPDF(path) {
+    document.getElementById("pdfFrame").src = path;
+    document.getElementById("downloadBtn").href = path;
+  }
+</script>
+
+</body>
+</html>

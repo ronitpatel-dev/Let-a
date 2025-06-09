@@ -1,0 +1,32 @@
+#inner-Content-1 {
+    background-color: rgb(255, 215, 163);
+    width: 1500px;
+    padding: 10px;
+    margin-top: 150px;
+    
+}
+marquee{
+    position: relative;
+    bottom: 250px;
+}
+
+
+.notes-list {
+    list-style: none;
+}
+
+.notes-list button {
+    background-color: blueviolet;
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 8px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.notes-list button:hover {
+    background: linear-gradient(45deg, rgb(188, 131, 240), blueviolet, rgb(78, 30, 123));
+}

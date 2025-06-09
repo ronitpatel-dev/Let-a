@@ -31,7 +31,7 @@ nav a:hover {
 }
 
 #main {
-  background-color: rgb(255, 80, 232);
+  background: linear-gradient(135deg, #8e44ad, #3498db);
   width: auto;
   height: auto;
   padding: 5px;
@@ -99,7 +99,7 @@ nav a:hover {
   top: 0px;
   left: 300px;
   bottom: 1000px;
-  background-color: #e696cb;
+  background: linear-gradient(135deg, #8e44ad, #0c517f);
   width: 1000px;
   padding: 10px;
   margin: 10px;
@@ -115,7 +115,7 @@ nav a:hover {
 #CPU,
 #Components {
   padding: 25px;
-  border-radius: 25px;
+  border-radius: 20px;
   margin: 10px 12px;
 }
 
@@ -125,39 +125,39 @@ nav a:hover {
 }
 
 #intro {
-  background-color: #f348ba;
+  background-color: #d9b1cc;
 }
 
 #Characteristics {
-  background-color: #f16dc5;
+  background-color: #e7b7d7;
   border-radius: 25px;
 }
 
 #Classification {
-  background-color: #f348ba;
+  background-color: #fac0e7;
 }
 
 #os {
-  background-color: #f16dc5;
+  background-color: #e5bed8;
 }
 
 #Memory {
-  background-color: #8b075f;
+  background-color: #deb6d1;
 }
 #CPU {
-  background-color:#f16dc5;
+  background-color:#ebd5e4;
 }
 
 #Software {
-  background-color: #fc03a9;
+  background-color: #f5cae7;
 }
 
 #CpLanguage {
-  background-color: #f16dc5;
+  background-color: #efc9e2;
 }
 
 #Components {
-  background-color: #c90587;
+  background-color: #f3d6e9;
 }
 
 #img1 {

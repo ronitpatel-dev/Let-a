@@ -103,6 +103,7 @@ header {
 
 .main a {
     text-decoration: none;
+    color:black;
 }
 
 .main a:hover {
@@ -116,9 +117,10 @@ header {
     width: 1040px;
     display: flex;
     justify-content: center;    
+    flex-direction: row;
     align-items: center;         
     border: #1d1d1d 1px solid;
-    overflow: auto;              /* In case content overflows */
+    overflow: auto;              
     padding: 20px;
 }
 
