@@ -67,6 +67,7 @@ header {
     padding: 10px;
     border-radius: 10px;
     border: 2px solid black;
+    cursor: pointer;
 }
 .cp {
     color:black;
@@ -121,7 +122,7 @@ header {
     align-items: center;         
     border: #1d1d1d 1px solid;
     overflow: auto;              
-    padding: 20px;
+    padding: 10px;
 }
 
 #inner-Content{

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Live Job & Internship Search (India)</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: #f4eef6;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: left;
+            position: relative;
+            bottom: 30px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: start;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        input[type="text"],
+        select {
+            padding: 8px;
+            width: 220px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #b809d3;
+            color: black;
+        }
+
+        .job-card {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-card h2 {
+            margin: 0 0 5px;
+            color: #007bff;
+        }
+
+        .apply-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 7px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        /* 🔄 Loader Styles */
+        #loader {
+            display: none;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .spinner {
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #007bff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        #backBtn {
+            position: absolute;
+            top: 10px;
+            left: 1250px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        #backBtn:hover {
+            color:black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1> Job & Internship </h1>
+
+    <!--  Search & Filter -->
+    <div class="controls">
+        <button id="backBtn" onclick="goBack()">❌</button>
+        <input type="text" id="searchInput" placeholder="Search e.g. Web Developer">
+        <select id="categorySelect">
+            <option value="">All Categories</option>
+            <option value="internship">Internship</option>
+            <option value="remote">Remote</option>
+            <option value="full time">Full Time</option>
+        </select>
+        <button onclick="searchJobs()">Search</button>
+    </div>
+
+    <!-- 🔄 Loader -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <p>Fetching jobs, please wait...</p>
+    </div>
+
+    <!-- 📋 Job Results -->
+    <div id="results">Enter a keyword and click search.</div>
+
+    <script>
+        async function searchJobs() {
+            const keyword = document.getElementById("searchInput").value.trim();
+            const category = document.getElementById("categorySelect").value;
+            let query = keyword;
+
+            if (category) {
+                query += " " + category;
+            }
+
+
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': 'ac7df38a95mshbca0a653f7d4845p185a88jsne764ce2bd18b', // 🔑 Replace this!
+                    'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+                }
+            };
+
+            const loader = document.getElementById("loader");
+            const resultsDiv = document.getElementById("results");
+
+            resultsDiv.innerHTML = "";
+            loader.style.display = "block";
+
+            try {
+                const res = await fetch(`https://jsearch.p.rapidapi.com/search?query=${encodeURIComponent(query)}&page=1&num_pages=1`, options);
+                const data = await res.json();
+                const jobs = data.data;
+
+                loader.style.display = "none";
+
+                if (!jobs || jobs.length === 0) {
+                    resultsDiv.innerHTML = "<p>No jobs found. Try a different keyword.</p>";
+                    return;
+                }
+
+                jobs.forEach(job => {
+                    const div = document.createElement("div");
+                    div.className = "job-card";
+                    div.innerHTML = `
+            <h2>${job.job_title}</h2>
+            <p><strong>Company:</strong> ${job.employer_name}</p>
+            <p><strong>Location:</strong> ${job.job_city || 'Remote / India'}</p>
+            <a class="apply-btn" href="${job.job_apply_link}" target="_blank">Apply Now</a>
+          `;
+                    resultsDiv.appendChild(div);
+                });
+
+            } catch (error) {
+                loader.style.display = "none";
+                resultsDiv.innerHTML = "<p>Error fetching jobs. Try again later.</p>";
+                console.error(error);
+            }
+        }
+        function goBack() {
+            window.history.back();
+        }
+
+    </script>
+
+</body>
+
+</html>

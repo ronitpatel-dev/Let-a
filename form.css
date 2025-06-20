@@ -9,12 +9,14 @@ body {
 
 span a {
     position: relative;
-    left: 225px;
+    left: 230px;
     bottom: 10px;
     color: black;
     text-decoration: none;
     text-align: right;
     font-size: large;
+    border: 2px solid black;
+    padding: 1px;
 
 }
 
@@ -23,21 +25,20 @@ form {
     position: relative;
     top: 100px;
     left: 500px;
-    padding: 12px;
     height: auto;
-    width: 250px;
-    border: 2px solid black;
-    border-radius: 25px;
-    padding: 15px;
+    width: 260px;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 25px 30px;
 }
 
 fieldset {
-    border-radius: 25px;
+    border-radius: 10px;
 }
 
 input,
 textarea {
-    padding: 9px;
+    padding: 12px;
     position: relative;
     top: 15px;
     left: 25px;
@@ -55,15 +56,15 @@ button {
     height: 35px;
     width: 90px;
     padding: 10px;
-    background: linear-gradient(50deg, black, gray);
+    background: linear-gradient(50deg, rgb(242, 2, 255), rgb(125, 35, 139));
 }
 
 button a{
     text-decoration: none;
 }
 button:hover {
-    background: linear-gradient(100deg, black, gray, white);
-    color: rgb(226, 6, 6);
+    background: linear-gradient(60deg, rgb(94, 2, 180), rgb(219, 109, 169), purple);
+    color: black;
     font-weight: bold;
 }
 textarea:hover{

@@ -31,25 +31,19 @@
 
     <div class="layout">
         <div class="main">
-            <div class="cp">Course</div>
+            <p id="C-head">Ms-Office</p>
+            <div class="cp" onclick="showCourse()">Course</div>
             <div class="MSC-IT" onclick="showNotes()">Notes</div>
-            <div class="html" onclick="alert('We will provide soon !!')">Live Classe</div>
+            <div class="html" onclick="loadLiveClass()">Live Classe</div>
             <div class="CSS" onclick="alert('We will provide soon !!')">Recorded</div>
             <div class="JavaScript">F&Q</div>
             </a>
-            <a href="test1.html">
+            <a href="test-msc.html">
                 <div class="Python">Test</div><br>
             </a>
         </div>
 
         <div id="content">
-            <marquee behavior="alternate" direction="right" width="1500px">hello</marquee>
-            <!--
-            <div id="up-div">
-                <p>Ms -office</p>
-            </div>
-            -->
-
             <div id="inner-Content-1">
                 <h3>🔹 1. MS Word – Word Processing</h3><br>
                 1.Introduction to Word interface.<br>
@@ -104,6 +98,26 @@
 
         </div>
     </footer>
-</body>
+    <script>
+function loadLiveClass() {
+    fetch('test-msc.html')
+        .then(response => response.text())
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const containerDiv = doc.querySelector('.container');
 
+            if (containerDiv) {
+                document.getElementById('inner-Content-1').innerHTML = containerDiv.outerHTML;
+            } else {
+                document.getElementById('inner-Content-1').innerHTML = '<p>Live class content not found.</p>';
+            }
+        })
+        .catch(error => {
+            console.error('Error loading live class content:', error);
+        });
+}
+</script>
+
+</body>
 </html>
