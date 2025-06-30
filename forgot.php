@@ -27,7 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->SMTPAuth   = true;
             $mail->Username   = 'yourgmail@gmail.com';         // ← your Gmail
             $mail->Password   = 'your-app-password';           // ← your App Password
-            $mail->SMTPSecure = 'tls';
+            $mail->SMTPSecure = 'tls';git rm --cached Let-a
+rm .gitmodules
+git commit -m "Removed broken submodule reference"
+git push origin main
+
             $mail->Port       = 587;
 
             $mail->setFrom('yourgmail@gmail.com', 'Lets Learn');
