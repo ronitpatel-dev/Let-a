@@ -2,12 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link href="style.css" rel="stylesheet">
-    <link href="style1.css" rel="stylesheet">
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML </title>
+    <link href="cssFile/style.css" rel="stylesheet" />
+    <link href="cssFile/course.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -17,6 +16,7 @@
             <div class="dropdown" id="dropdownMenu">
                 <a href="index.html" onclick="alert('Sucessfully Logout !')">Logout</a>
                 <a href="form.html">Teach and Learn</a>
+                <a href="jobs.html">Internship & Job</a>
                 <a href="#" onclick="alert('We will provide soon')">Mentorship</a>
                 <a href="#" onclick="alert('hello')">Etc</a>
             </div>
@@ -27,43 +27,122 @@
             <a href="#Contact">Contact</a>
         </div>
     </header>
+
     <div class="layout">
         <div class="main">
-            <div class="Course-1" id="html-course">Course</div>
-            <div class="Notes-1" id="html-notes">Notes</div>
-            <div class="Live-1" id="html-live">Live Classe</div>
-            <div class="Recorded-1" id="html-Recorded">Recorded</div>
-            <div class="Test-1" id="html-test">Test</div><br><br>
+            <h1 id="C-head">Html Course</h1>
+            <div class="cp" onclick="showCourse()">Course</div>
+            <div class="MSC-IT" onclick="showNotes()">Notes</div>
+            <div class="html" onclick="loadLiveClass()">Live Classe</div>
+            <div class="CSS" onclick="alert('We will provide soon !!')">Recorded</div>
+            <div class="JavaScript">F&Q</div>
+            <a href="test-msc.html">
+                <div class="Python">Test</div><br />
+            </a>
         </div>
 
         <div id="content">
-            <div id="inner-Content">
-                <img src="images/boy1.jpg" alt="Website"><br>
-                <h1 id="h11">Hello</h1></div>
+            <div id="P-content">
+                <img src="images/htt.png" alt="">
+                <h1>HTML</h1><br>
+                <p>Learn HTML – the foundational language for creating websites and web<br> applications.
+                    HTML (HyperText Markup Language) helps you structure<br> content on the web, from simple
+                    text and images to complex layouts.<br> It allows you to build clean, accessible, and
+                    well-organized webpages<br> that work across all devices. With HTML, you’ll learn how
+                    to use elements<br> like headings, paragraphs, links, images, and forms to bring your
+                    ideas to<br> life online. Mastering HTML is the first step to becoming a web developer<br>
+                    and is essential for anyone who wants to understand how the internet<br> works.</p>          
+                 </div>
         </div>
     </div>
 
     <footer>
         <div id="AboutUs">
-            About Us <br>Let's Learn is your trusted online learning platform, dedicated to
+            About Us <br />Let's Learn is your trusted online learning platform, dedicated to
             making computer education accessible and engaging for everyone.
             Whether you're a complete beginner or looking to sharpen your skills, we offer a variety of courses
             including Python, Basic Computer Fundamentals, MSCIT, JavaScript, HTML, CSS, and more. Our goal is to
             empower learners with practical knowledge and skills that can open new doors in the digital world.
         </div>
         <div id="Contact">
-            Contact Us<br>
-            Have questions or need assistance? We're here to help!
-            📧 Email: support@letslearn.com
-            📞 Phone: +91-XXXXXXXXXX
-            🌐 Website: www.letslearn.com
-
-            Follow us on social media to stay updated on new courses and offers.
+            Contact Us<br />
+            Have questions or need assistance? We're here to help!<br />
+            📧 Email: support@letslearn.com<br />
+            📞 Phone: +91-XXXXXXXXXX<br />
+            🌐 Website: www.letslearn.com<br />
+            Follow us on social media to stay updated on new courses and offers.<br />
             👍 Facebook | 📷 Instagram | 🐦 Twitter | 💼 LinkedIn
-
         </div>
     </footer>
+    <script>
+        function showCourse() {
+            fetch('hm2.html')
+                .then(res => res.text())
+                .then(data => {
+                    const temp = document.createElement('div');
+                    temp.innerHTML = data;
+                    const courseContent = temp.querySelector('#inner-Content-11');
+                    document.getElementById('content').innerHTML = courseContent
+                        ? courseContent.outerHTML
+                        : 'Course content not found!';
+                });
+        }
+
+        function showNotes() {
+            document.getElementById("content").innerHTML = `
+            <h3 id="h33">Select Note</h3>
+            <ul class="notes-list" style="list-style: none; padding: 0;">
+                <li><button onclick="loadPDF('notes1.pdf')">Notes 1</button></li>
+                <li><button onclick="loadPDF('notes2.pdf')">Notes 2</button></li>
+                <li><button onclick="loadPDF('notes3.pdf')">Notes 3</button></li>
+                <li><button onclick="loadPDF('notes4.pdf')">Notes 4</button></li>
+                <li><button onclick="loadPDF('notes5.pdf')">Notes 5</button></li>
+            </ul>
+            <div id="inner-Content-1" style="margin-top: 10px;"></div>
+        `;
+        }
+        function loadPDF(fileName) {
+            document.getElementById("inner-Content-1").innerHTML = `
+            <iframe src="pdfs/${fileName}" width="100%" height="auto " style="border: none;"></iframe>
+            <br><br>
+            <a href="pdfs/${fileName}" download>
+                <button id="Dbutton">Download PDF</button>
+            </a>
+        `;
+        }
+
+        function loadLiveClass() {
+            fetch('msc2.html')
+                .then(res => res.text())
+                .then(data => {
+                    const temp = document.createElement('div');
+                    temp.innerHTML = data;
+                    const liveContent = temp.querySelector('.mscClass');
+                    document.getElementById('content').innerHTML = liveContent
+                        ? liveContent.outerHTML
+                        : 'Live class content not found!';
+
+                    const editPassInput = document.getElementById("pass-Msc");
+                    const enrollInput = document.getElementById("Enroll-Pass");
+                    const tableCells = document.querySelectorAll("#schedule-table td");
+
+                    tableCells.forEach(cell => cell.setAttribute("contenteditable", "false"));
+                    enrollInput.setAttribute("readonly", true);
+
+                    editPassInput.addEventListener("input", function () {
+                        const password = editPassInput.value.trim();
+                        if (password === "letss@101") {
+                            tableCells.forEach(cell => cell.setAttribute("contenteditable", "true"));
+                            enrollInput.removeAttribute("readonly");
+                        } else {
+                            tableCells.forEach(cell => cell.setAttribute("contenteditable", "false"));
+                            enrollInput.setAttribute("readonly", true);
+                        }
+                    });
+                });
+        }
+    </script>
+
 </body>
-<script src="script.js"></script>
 
 </html>

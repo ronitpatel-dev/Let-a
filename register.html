@@ -5,13 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Register - Let's Learn</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
     body {
       background: linear-gradient(135deg, #00b894, #0984e3);
       height: 100vh;
@@ -19,7 +13,6 @@
       justify-content: center;
       align-items: center;
     }
-
     .register-box {
       background-color: #fff;
       padding: 30px 25px;
@@ -27,104 +20,99 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
       width: 350px;
     }
-
     .register-box h2 {
       text-align: center;
       margin-bottom: 20px;
       color: #2d3436;
     }
-
-    .register-box input[type="text"],
-    .register-box input[type="number"],
-    .register-box input[type="email"],
-    .register-box input[type="password"] {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      transition: 0.3s;
+    .register-box input {
+      width: 100%; padding: 12px; margin: 8px 0;
+      border: 1px solid #ccc; border-radius: 8px; transition: 0.3s;
     }
-
     .register-box input:focus {
-      border-color: #0984e3;
-      outline: none;
+      border-color: #0984e3; outline: none;
     }
-
     .register-box p {
-      margin: 10px 0 5px;
-      font-weight: bold;
-      color: #2d3436;
+      margin: 10px 0 5px; font-weight: bold; color: #2d3436;
     }
-
-    .gender-group {
-      margin-bottom: 15px;
-    }
-
-    .gender-group label {
-      margin-right: 10px;
-    }
-
+    .gender-group { margin-bottom: 15px; }
+    .gender-group label { margin-right: 10px; }
     .register-box button {
-      width: 100%;
-      padding: 12px;
-      background-color: #0984e3;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 10px;
+      width: 100%; padding: 12px; background-color: #0984e3;
+      color: #fff; border: none; border-radius: 8px;
+      font-weight: bold; cursor: pointer; margin-top: 10px;
       transition: all 0.3s ease;
     }
-
     .register-box button:hover {
-      background-color: #0652dd;
-      transform: scale(1.02);
+      background-color: #0652dd; transform: scale(1.02);
     }
-
     .login-link {
-      text-align: center;
-      margin-top: 15px;
-      font-size: 14px;
+      text-align: center; margin-top: 15px; font-size: 14px;
     }
-
     .login-link a {
-      color: #0984e3;
-      font-weight: bold;
-      text-decoration: none;
+      color: #0984e3; font-weight: bold; text-decoration: none;
     }
-
-    .login-link a:hover {
-      text-decoration: underline;
-    }
+    .login-link a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-
   <div class="register-box">
     <h2>Register</h2>
-
-    <form action="index.html" method="GET">
-      <input type="text" name="name" id="name" placeholder="Enter Username" required>
-      <input type="number" name="age" id="age" placeholder="Enter Age" required>
-      <input type="email" name="email" id="email" placeholder="Enter Email" required>
-      <input type="password" name="pass" id="pass" placeholder="Enter Password" required>
+    <form id="registerForm" method="POST" action="register.php" onsubmit="return validateForm()">
+      <input type="text" name="name" id="name" placeholder="Enter Username">
+      <input type="tel" name="mobile" id="mobile" placeholder="Enter Mobile Number">
+      <input type="email" name="email" id="email" placeholder="Enter Email">
+      <input type="password" name="pass" id="pass" placeholder="Enter Password">
 
       <p>Select Gender</p>
       <div class="gender-group">
-        <label><input type="radio" name="gender" value="male" required> Male</label>
+        <label><input type="radio" name="gender" value="male"> Male</label>
         <label><input type="radio" name="gender" value="female"> Female</label>
         <label><input type="radio" name="gender" value="other"> Other</label>
       </div>
 
       <button type="submit">Register</button>
     </form>
-
-    <p class="login-link">
-      Already Registered? <a href="index.html">Login</a>
-    </p>
+    <p class="login-link">Already Registered? <a href="index.html">Login</a></p>
   </div>
 
+  <script>
+    function validateForm() {
+      const name = document.getElementById("name").value.trim();
+      const mobile = document.getElementById("mobile").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("pass").value;
+      const genderSelected = document.querySelector('input[name="gender"]:checked');
+
+      if (name === "") {
+        alert("Username cannot be empty.");
+        return false;
+      }
+
+      const mobileRegex = /^[0-9]{10}$/;
+      if (!mobileRegex.test(mobile)) {
+        alert("Please enter a valid 10-digit mobile number.");
+        return false;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email.");
+        return false;
+      }
+
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+      }
+
+      if (!genderSelected) {
+        alert("Please select your gender.");
+        return false;
+      }
+
+      return true; // all validations passed
+    }
+  </script>
 </body>
 </html>

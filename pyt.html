@@ -1,36 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python</title>
+    <link href="cssFile/style.css" rel="stylesheet" />
+    <link href="cssFile/course.css" rel="stylesheet" />
 </head>
+
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="home.html">Service</a></li>
-                <li><a href="home.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="logo" id="logo">
+            🔰
+            <div class="dropdown" id="dropdownMenu">
+                <a href="index.html" onclick="alert('Sucessfully Logout !')">Logout</a>
+                <a href="form.html">Teach and Learn</a>
+                <a href="jobs.html">Internship & Job</a>
+                <a href="#" onclick="alert('We will provide soon')">Mentorship</a>
+                <a href="#" onclick="alert('hello')">Etc</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="home.html">Home</a>
+            <a href="#AboutUs">About Us</a>
+            <a href="#Contact">Contact</a>
+        </div>
     </header>
 
-    <!-- Wrap both main and content in a flex container -->
     <div class="layout">
         <div class="main">
-           <a href="Course.html"><div class="cp">Course</div></a>
-            <a href="Nots.html"><div class="MSC-IT">Notes</div></a>
-            <a href="Live.html"><div class="html">Live Classe</div></a>
-            <a href="Rec.html"><div class="CSS">Recorded</div></a>
-            <a href="JavaScript.html"><div class="JavaScript">F&Q</div></a>
-            <a href="Python.html"><div class="Python">Test</div><br><br></a>
+            <h1 id="C-head">Python</h1>
+            <div class="cp" onclick="showCourse()">Course</div>
+            <div class="MSC-IT" onclick="showNotes()">Notes</div>
+            <div class="html" onclick="loadLiveClass()">Live Classe</div>
+            <div class="CSS" onclick="alert('We will provide soon !!')">Recorded</div>
+            <div class="JavaScript">F&Q</div>
+            <a href="test-msc.html">
+                <div class="Python">Test</div><br />
+            </a>
         </div>
 
-        <div id="content"></div>
+        <div id="content">
+            <div id="P-content">
+                <img src="images/pytt.jpeg" alt="">
+                <h1>Python</h1><br>
+                <p>Learn Python – one of the most popular and beginner-friendly<br>
+                    programming languages used by developers, data scientists, and<br>
+                    engineers around the world. Python helps you write clean, readable<br>
+                    code for a wide range of applications like automation, web development,<br>
+                    data analysis, and artificial intelligence. With its simple syntax and<br>
+                    powerful libraries, Python is perfect for both students and professionals.<br>
+                    Mastering Python will boost your problem-solving skills, open up career<br>
+                    opportunities, and prepare you for real-world programming challenges.</p>
+            </div>
+        </div>
     </div>
 
-    <footer>FOOTER</footer>
+    <footer>
+        <div id="AboutUs">
+            About Us <br />Let's Learn is your trusted online learning platform, dedicated to
+            making computer education accessible and engaging for everyone.
+            Whether you're a complete beginner or looking to sharpen your skills, we offer a variety of courses
+            including Python, Basic Computer Fundamentals, MSCIT, JavaScript, HTML, CSS, and more. Our goal is to
+            empower learners with practical knowledge and skills that can open new doors in the digital world.
+        </div>
+        <div id="Contact">
+            Contact Us<br />
+            Have questions or need assistance? We're here to help!<br />
+            📧 Email: support@letslearn.com<br />
+            📞 Phone: +91-XXXXXXXXXX<br />
+            🌐 Website: www.letslearn.com<br />
+            Follow us on social media to stay updated on new courses and offers.<br />
+            👍 Facebook | 📷 Instagram | 🐦 Twitter | 💼 LinkedIn
+        </div>
+    </footer>
+    <script>
+        function showCourse() {
+            fetch('pyt2.html')
+                .then(res => res.text())
+                .then(data => {
+                    const temp = document.createElement('div');
+                    temp.innerHTML = data;
+                    const courseContent = temp.querySelector('#inner-Content-1');
+                    document.getElementById('content').innerHTML = courseContent
+                        ? courseContent.outerHTML
+                        : 'Course content not found!';
+                });
+        }
+
+        function showNotes() {
+            document.getElementById("content").innerHTML = `
+            <h3 id="h33">Select Note</h3>
+            <ul class="notes-list" style="list-style: none; padding: 0;">
+                <li><button onclick="loadPDF('notes1.pdf')">Notes 1</button></li>
+                <li><button onclick="loadPDF('notes2.pdf')">Notes 2</button></li>
+                <li><button onclick="loadPDF('notes3.pdf')">Notes 3</button></li>
+                <li><button onclick="loadPDF('notes4.pdf')">Notes 4</button></li>
+                <li><button onclick="loadPDF('notes5.pdf')">Notes 5</button></li>
+            </ul>
+            <div id="inner-Content-1" style="margin-top: 10px;"></div>
+        `;
+        }
+        function loadPDF(fileName) {
+            document.getElementById("inner-Content-1").innerHTML = `
+            <iframe src="pdfs/${fileName}" width="100%" height="auto " style="border: none;"></iframe>
+            <br><br>
+            <a href="pdfs/${fileName}" download>
+                <button id="Dbutton">Download PDF</button>
+            </a>
+        `;
+        }
+
+        function loadLiveClass() {
+            fetch('msc2.html')
+                .then(res => res.text())
+                .then(data => {
+                    const temp = document.createElement('div');
+                    temp.innerHTML = data;
+                    const liveContent = temp.querySelector('.mscClass');
+                    document.getElementById('content').innerHTML = liveContent
+                        ? liveContent.outerHTML
+                        : 'Live class content not found!';
+
+                    const editPassInput = document.getElementById("pass-Msc");
+                    const enrollInput = document.getElementById("Enroll-Pass");
+                    const tableCells = document.querySelectorAll("#schedule-table td");
+
+                    tableCells.forEach(cell => cell.setAttribute("contenteditable", "false"));
+                    enrollInput.setAttribute("readonly", true);
+
+                    editPassInput.addEventListener("input", function () {
+                        const password = editPassInput.value.trim();
+                        if (password === "letss@101") {
+                            tableCells.forEach(cell => cell.setAttribute("contenteditable", "true"));
+                            enrollInput.removeAttribute("readonly");
+                        } else {
+                            tableCells.forEach(cell => cell.setAttribute("contenteditable", "false"));
+                            enrollInput.setAttribute("readonly", true);
+                        }
+                    });
+                });
+        }
+    </script>
+
 </body>
+
 </html>

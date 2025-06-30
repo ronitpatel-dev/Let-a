@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link href="st.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <link href="cssFile/st.css" rel="stylesheet">
+    <link href="cssFile/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -15,8 +16,9 @@
             <div class="dropdown" id="dropdownMenu">
                 <a href="index.html" onclick="alert('Sucessfully Logout !')">Logout</a>
                 <a href="form.html">Teach and Learn</a>
-                <a href="jobs.html" >Internship & Job</a>
-                 <a href="notepad.html" onclick="alert('hello')">Notepad</a>
+                <a href="jobs.html">Internship & Job</a>
+                <a href="#" onclick="loadNotepad(); return false;">Notepad</a>
+
             </div>
         </div>
         <div class="nav-right">
@@ -30,12 +32,13 @@
             <a href="Cp.html">
                 <div class="cp">Fundamental Of Computers</div>
             </a>
-            <div class="MSC-IT" id="msc-it">MSC-IT</div>
+            <div class="MSC-IT" id="msc-it">MS-Office</div>
             <div class="html" id="html-course">HTML</div>
             <div class="CSS" id="css-course">CSS</div>
             <div class="JavaScript" id="js-course">Java Script</div>
             <div class="Python" id="python-course">Python</div><br><br>
         </div>
+        <div id="notepad-container"></div>
 
         <div id="content">
             <div id="inner-Content">

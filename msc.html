@@ -2,23 +2,22 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link href="style.css" rel="stylesheet">
-    <link href="course.css" rel="stylesheet">
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ms-Office</title>
+    <link href="cssFile/style.css" rel="stylesheet" />
+    <link href="cssFile/course.css" rel="stylesheet" />
 </head>
 
 <body>
-
     <header>
         <div class="logo" id="logo">
             🔰
             <div class="dropdown" id="dropdownMenu">
                 <a href="index.html" onclick="alert('Sucessfully Logout !')">Logout</a>
                 <a href="form.html">Teach and Learn</a>
-                <a href="#" onclick="alert('We will provide soon')">Mentorship</a>
+                <a href="jobs.html">Internship & Job</a>
+                <a href="#" onclick="">Mentorship</a>
                 <a href="#" onclick="alert('hello')">Etc</a>
             </div>
         </div>
@@ -31,93 +30,122 @@
 
     <div class="layout">
         <div class="main">
-            <p id="C-head">Ms-Office</p>
+            <h1 id="C-head">Ms-Office</h1>
             <div class="cp" onclick="showCourse()">Course</div>
             <div class="MSC-IT" onclick="showNotes()">Notes</div>
             <div class="html" onclick="loadLiveClass()">Live Classe</div>
             <div class="CSS" onclick="alert('We will provide soon !!')">Recorded</div>
             <div class="JavaScript">F&Q</div>
-            </a>
             <a href="test-msc.html">
-                <div class="Python">Test</div><br>
+                <div class="Python">Test</div><br />
             </a>
         </div>
 
         <div id="content">
-            <div id="inner-Content-1">
-                <h3>🔹 1. MS Word – Word Processing</h3><br>
-                1.Introduction to Word interface.<br>
-                2.Creating and saving documents.<br>
-                3.Formatting text and paragraphs.<br>
-                4.Inserting tables, images, and shape0s.<br>
-                5.Page layout and printing options.<br>
-                6.Using headers, footers, and page numbers.<br>
-                7.Mail Merge (basic)<br><br>
-
-                <h3>🔹 2. MS Excel – Spreadsheets</h3><br>
-                1.Introduction to Excel interface.<br>
-                2.Working with cells, rows, and columns.<br>
-                3.Basic formulas and functions (SUM, AVERAGE, etc.).<br>
-                4.Formatting cells and data types.<br>
-                5.Sorting and filtering data.<br>
-                6.Creating charts and graphs.<br>
-                7.Introduction to Pivot Tables<br><br>
-
-                <h3> 🔹 3. MS PowerPoint – Presentations</h3><br>
-                1.Introduction to PowerPoint interface.<br>
-                2.Creating and organizing slides.<br>
-                3.Applying themes and slide layouts.<br>
-                4.Adding text, images, and videos.<br>
-                5.Using transitions and animations.<br>
-                6.Slide show and presentation tips.<br>
-                7.Printing and exporting slides.<br>
+            <div id="P-content">
+                <img src="images/wordd.jpeg" alt="">
+                <h1>MS-Office</h1><br>
+                    <p>Learn Microsoft Word, Excel, and PowerPoint – the essential<br>
+                    tools for students and professionals alike. Microsoft Word helps<br>
+                    you create clean, well-formatted documents like reports, letters,<br>
+                    and assignments. Excel is perfect for organizing data, performing<br>
+                    calculations, and analyzing information with charts and formulas.<br>
+                    PowerPoint lets you create engaging presentations with text, images, <br>
+                    and animations—ideal for both classroom and office use. Mastering <br>
+                    these tools will boost your productivity, enhance your communication<br>
+                    skills, and prepare you for any digital workspace.</P>
             </div>
+
         </div>
-
     </div>
-    <script src="script.js"></script>
-
 
     <footer>
         <div id="AboutUs">
-            About Us <br>Let's Learn is your trusted online learning platform, dedicated to
+            About Us <br />Let's Learn is your trusted online learning platform, dedicated to
             making computer education accessible and engaging for everyone.
             Whether you're a complete beginner or looking to sharpen your skills, we offer a variety of courses
             including Python, Basic Computer Fundamentals, MSCIT, JavaScript, HTML, CSS, and more. Our goal is to
             empower learners with practical knowledge and skills that can open new doors in the digital world.
         </div>
         <div id="Contact">
-            Contact Us<br>
-            Have questions or need assistance? We're here to help!<br>
-            📧 Email: support@letslearn.com
-            📞 Phone: +91-XXXXXXXXXX
-            🌐 Website: www.letslearn.com
-
-            Follow us on social media to stay updated on new courses and offers.
-            <br>👍 Facebook | 📷 Instagram | 🐦 Twitter | 💼 LinkedIn
-
+            Contact Us<br />
+            Have questions or need assistance? We're here to help!<br />
+            📧 Email: support@letslearn.com<br />
+            📞 Phone: +91-XXXXXXXXXX<br />
+            🌐 Website: www.letslearn.com<br />
+            Follow us on social media to stay updated on new courses and offers.<br />
+            👍 Facebook | 📷 Instagram | 🐦 Twitter | 💼 LinkedIn
         </div>
     </footer>
     <script>
-function loadLiveClass() {
-    fetch('test-msc.html')
-        .then(response => response.text())
-        .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const containerDiv = doc.querySelector('.container');
+        function showCourse() {
+            fetch('msc2.html')
+                .then(res => res.text())
+                .then(data => {
+                    const temp = document.createElement('div');
+                    temp.innerHTML = data;
+                    const courseContent = temp.querySelector('#inner-Content-1');
+                    document.getElementById('content').innerHTML = courseContent
+                        ? courseContent.outerHTML
+                        : 'Course content not found!';
+                });
+        }
 
-            if (containerDiv) {
-                document.getElementById('inner-Content-1').innerHTML = containerDiv.outerHTML;
-            } else {
-                document.getElementById('inner-Content-1').innerHTML = '<p>Live class content not found.</p>';
-            }
-        })
-        .catch(error => {
-            console.error('Error loading live class content:', error);
-        });
-}
-</script>
+        function showNotes() {
+            document.getElementById("content").innerHTML = `
+            <h3 id="h33">Select Note</h3>
+            <ul class="notes-list" style="list-style: none; padding: 0;">
+                <li><button onclick="loadPDF('notes1.pdf')">Notes 1</button></li>
+                <li><button onclick="loadPDF('notes2.pdf')">Notes 2</button></li>
+                <li><button onclick="loadPDF('notes3.pdf')">Notes 3</button></li>
+                <li><button onclick="loadPDF('notes4.pdf')">Notes 4</button></li>
+                <li><button onclick="loadPDF('notes5.pdf')">Notes 5</button></li>
+            </ul>
+            <div id="inner-Content-1" style="margin-top: 10px;"></div>
+        `;
+        }
+        function loadPDF(fileName) {
+            document.getElementById("inner-Content-1").innerHTML = `
+            <iframe src="pdfs/${fileName}" width="100%" height="auto " style="border: none;"></iframe>
+            <br><br>
+            <a href="pdfs/${fileName}" download>
+                <button id="Dbutton">Download PDF</button>
+            </a>
+        `;
+        }
+
+        function loadLiveClass() {
+            fetch('msc2.html')
+                .then(res => res.text())
+                .then(data => {
+                    const temp = document.createElement('div');
+                    temp.innerHTML = data;
+                    const liveContent = temp.querySelector('.mscClass');
+                    document.getElementById('content').innerHTML = liveContent
+                        ? liveContent.outerHTML
+                        : 'Live class content not found!';
+
+                    const editPassInput = document.getElementById("pass-Msc");
+                    const enrollInput = document.getElementById("Enroll-Pass");
+                    const tableCells = document.querySelectorAll("#schedule-table td");
+
+                    tableCells.forEach(cell => cell.setAttribute("contenteditable", "false"));
+                    enrollInput.setAttribute("readonly", true);
+
+                    editPassInput.addEventListener("input", function () {
+                        const password = editPassInput.value.trim();
+                        if (password === "letss@101") {
+                            tableCells.forEach(cell => cell.setAttribute("contenteditable", "true"));
+                            enrollInput.removeAttribute("readonly");
+                        } else {
+                            tableCells.forEach(cell => cell.setAttribute("contenteditable", "false"));
+                            enrollInput.setAttribute("readonly", true);
+                        }
+                    });
+                });
+        }
+    </script>
+<script src="script.js"></script>
 
 </body>
 </html>

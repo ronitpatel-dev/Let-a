@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link href="style.css" rel="stylesheet">
-    <link href="st.css" rel="stylesheet">
-    
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript</title>
+    <link href="cssFile/style.css" rel="stylesheet" />
+    <link href="cssFile/course.css" rel="stylesheet" />
 </head>
+
 <body>
     <header>
         <div class="logo" id="logo">
@@ -16,6 +16,7 @@
             <div class="dropdown" id="dropdownMenu">
                 <a href="index.html" onclick="alert('Sucessfully Logout !')">Logout</a>
                 <a href="form.html">Teach and Learn</a>
+                <a href="jobs.html">Internship & Job</a>
                 <a href="#" onclick="alert('We will provide soon')">Mentorship</a>
                 <a href="#" onclick="alert('hello')">Etc</a>
             </div>
@@ -26,22 +27,124 @@
             <a href="#Contact">Contact</a>
         </div>
     </header>
-   
 
-    <!-- Wrap both main and content in a flex container -->
     <div class="layout">
         <div class="main">
-           <a href="Cp.html"><div class="cp">Course</div></a>
-            <a href="msc.html"><div class="MSC-IT">Notes</div></a>
-            <a href="hm.html"><div class="html">Live Classe</div></a>
-            <a href="css.html"><div class="CSS">Recorded</div></a>
-            <a href="js.html"><div class="JavaScript">F&Q</div></a>
-            <a href="pyt.html"><div class="Python">Test</div><br><br></a>
+            <h1 id="C-head">Java Script Course</h1>
+            <div class="cp" onclick="showCourse()">Course</div>
+            <div class="MSC-IT" onclick="showNotes()">Notes</div>
+            <div class="html" onclick="loadLiveClass()">Live Classe</div>
+            <div class="CSS" onclick="alert('We will provide soon !!')">Recorded</div>
+            <div class="JavaScript">F&Q</div>
+            <a href="test-msc.html">
+                <div class="Python">Test</div><br />
+            </a>
         </div>
 
-        <div id="content"></div>
+        <div id="content">
+            <div id="P-content">
+                <img src="images/jss.jpeg" alt="">
+                <h1>JavaScript</h1><br>
+                <p>Learn JavaScript – the essential programming language for web<br> 
+                    development used by beginners and professionals alike. JavaScript helps <br>
+                    you add dynamic features to websites, such as interactive forms,
+                    <br> real-time updates, and animated elements. It works alongside HTML<br>
+                     and CSS to create fully functional web pages and user-friendly interfaces. <br>
+                     From simple pop-ups to complex web apps, JavaScript is key to making <br>
+                     your website responsive and engaging. Mastering JavaScript will boost<br>
+                     your coding skills, enhance your creativity, and open doors to frontend and<br>
+                    backend development in the digital world.</p>
+            </div>
+        </div>
     </div>
 
-    <footer>FOOTER</footer>
+    <footer>
+        <div id="AboutUs">
+            About Us <br />Let's Learn is your trusted online learning platform, dedicated to
+            making computer education accessible and engaging for everyone.
+            Whether you're a complete beginner or looking to sharpen your skills, we offer a variety of courses
+            including Python, Basic Computer Fundamentals, MSCIT, JavaScript, HTML, CSS, and more. Our goal is to
+            empower learners with practical knowledge and skills that can open new doors in the digital world.
+        </div>
+        <div id="Contact">
+            Contact Us<br />
+            Have questions or need assistance? We're here to help!<br />
+            📧 Email: support@letslearn.com<br />
+            📞 Phone: +91-XXXXXXXXXX<br />
+            🌐 Website: www.letslearn.com<br />
+            Follow us on social media to stay updated on new courses and offers.<br />
+            👍 Facebook | 📷 Instagram | 🐦 Twitter | 💼 LinkedIn
+        </div>
+    </footer>
+    <script>
+        function showCourse() {
+            fetch('js2.html')
+                .then(res => res.text())
+                .then(data => {
+                    const temp = document.createElement('div');
+                    temp.innerHTML = data;
+                    const courseContent = temp.querySelector('#inner-Content-1');
+                    document.getElementById('content').innerHTML = courseContent
+                        ? courseContent.outerHTML
+                        : 'Course content not found!';
+                });
+        }
+
+        function showNotes() {
+            document.getElementById("content").innerHTML = `
+            <h3 id="h33">Select Note</h3>
+            <ul class="notes-list" style="list-style: none; padding: 0;">
+                <li><button onclick="loadPDF('notes1.pdf')">Notes 1</button></li>
+                <li><button onclick="loadPDF('notes2.pdf')">Notes 2</button></li>
+                <li><button onclick="loadPDF('notes3.pdf')">Notes 3</button></li>
+                <li><button onclick="loadPDF('notes4.pdf')">Notes 4</button></li>
+                <li><button onclick="loadPDF('notes5.pdf')">Notes 5</button></li>
+            </ul>
+            <div id="inner-Content-1" style="margin-top: 10px;"></div>
+        `;
+        }
+        function loadPDF(fileName) {
+            document.getElementById("inner-Content-1").innerHTML = `
+            <iframe src="pdfs/${fileName}" width="100%" height="auto " style="border: none;"></iframe>
+            <br><br>
+            <a href="pdfs/${fileName}" download>
+                <button id="Dbutton">Download PDF</button>
+            </a>
+        `;
+        }
+
+        function loadLiveClass() {
+            fetch('msc2.html')
+                .then(res => res.text())
+                .then(data => {
+                    const temp = document.createElement('div');
+                    temp.innerHTML = data;
+                    const liveContent = temp.querySelector('.mscClass');
+                    document.getElementById('content').innerHTML = liveContent
+                        ? liveContent.outerHTML
+                        : 'Live class content not found!';
+
+                    const editPassInput = document.getElementById("pass-Msc");
+                    const enrollInput = document.getElementById("Enroll-Pass");
+                    const tableCells = document.querySelectorAll("#schedule-table td");
+
+                    tableCells.forEach(cell => cell.setAttribute("contenteditable", "false"));
+                    enrollInput.setAttribute("readonly", true);
+
+                    editPassInput.addEventListener("input", function () {
+                        const password = editPassInput.value.trim();
+                        if (password === "letss@101") {
+                            tableCells.forEach(cell => cell.setAttribute("contenteditable", "true"));
+                            enrollInput.removeAttribute("readonly");
+                        } else {
+                            tableCells.forEach(cell => cell.setAttribute("contenteditable", "false"));
+                            enrollInput.setAttribute("readonly", true);
+                        }
+                    });
+                });
+        }
+    </script>
+
 </body>
+
 </html>

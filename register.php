@@ -1,30 +1,40 @@
 <?php
-// Database connection
-$conn = new mysqli("localhost", "root", "", "user_registration");
+$host = "localhost";
+$user = "root";
+$password = "";
+$database = "letslearn";
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+// Connect to MySQL database
+$conn = mysqli_connect($host, $user, $password, $database);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
-// Form data
-$name = $_POST['name'];
-$age = $_POST['age'];
-$email = $_POST['email'];
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Encrypt password
-$gender = $_POST['gender'];
+// Get form data safely
+$name   = $_POST['name']   ?? '';
+$mobile = $_POST['mobile'] ?? '';
+$email  = $_POST['email']  ?? '';
+$pass   = $_POST['pass']   ?? '';
+$gender = $_POST['gender'] ?? '';
 
-// Insert into database
-$sql = "INSERT INTO users (name, age, email, password, gender) VALUES (?, ?, ?, ?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("sisss", $name, $age, $email, $password, $gender);
+// Debug: Print input values (optional)
+// echo "$name, $mobile, $email, $pass, $gender";
 
-if ($stmt->execute()) {
-    echo "<h2>Registration Successful!</h2>";
-    echo "<p><a href='register.html'>Go Back</a></p>";
+// Check if email already exists (optional)
+$check = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
+if (mysqli_num_rows($check) > 0) {
+    echo "<script>alert('This email is already registered!'); window.location.href='register.html';</script>";
 } else {
-    echo "<h3>Error: " . $stmt->error . "</h3>";
+    // Insert data directly
+    $sql = "INSERT INTO users (name, mobile, email, password, gender)
+            VALUES ('$name', '$mobile', '$email', '$pass', '$gender')";
+
+    if (mysqli_query($conn, $sql)) {
+        echo "<script>alert('Registration Successful!'); window.location.href='index.html';</script>";
+    } else {
+        echo "<script>alert('Error: " . mysqli_error($conn) . "');</script>";
+    }
 }
 
-$stmt->close();
-$conn->close();
+mysqli_close($conn);
 ?>

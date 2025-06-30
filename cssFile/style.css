@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    /*box-sizing: border-box;*/
+    box-sizing: border-box;
 }
 header {
     display: flex;
@@ -63,11 +63,11 @@ header {
 }
 .main {
     background:linear-gradient(10deg,rgb(71, 4, 71),rgb(150, 31, 140),rgb(255, 92, 255)),pink;
-    width: 275px;
-    padding: 10px;
-    border-radius: 10px;
-    border: 2px solid black;
-    cursor: pointer;
+        width: 275px;
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid black;
+        cursor: pointer;
 }
 .cp {
     color:black;
@@ -114,14 +114,15 @@ header {
 }
 #content {
     background-color:white;
-    height: 500px;
+    height: 523px;
     width: 1040px;
     display: flex;
     justify-content: center;    
     flex-direction: row;
     align-items: center;         
     border: #1d1d1d 1px solid;
-    overflow: auto;              
+    overflow-y: auto;       
+    overflow-x: auto;         
     padding: 10px;
 }
 
@@ -131,20 +132,21 @@ header {
     width: 600px;
     border: 2px solid black;
     border-radius: 25px;
-    height: 300px;
+    height: 350px;
+    width: 650px;
 }
 #inner-Content img{
     border-radius: 50%;
     position: relative;
     right: 25px;
-    top: 50px;
+    top: 10px;
     border: 1px solid black;
     box-shadow: 0px 0px 12px white;
 }
 #inner-Content #h11{
     position: relative;
-    left: 240px;
-    bottom: 150px;
+    left: 210px;
+    bottom: 190px;
 }
 footer {
     background-color: rgb(11, 11, 11);

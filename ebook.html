@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Real-Time Tech & Computer Books</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+      text-align: center;
+      color: #333;
+      transition: 0.3s ease;
+    }
+
+    .dark-mode {
+      background: #1e1e1e;
+      color: #eee;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    #controls {
+      margin: 20px auto;
+    }
+
+    #searchInput {
+      padding: 8px;
+      width: 250px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 8px 12px;
+      font-size: 16px;
+      margin: 5px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #book-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .book {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      width: 250px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: left;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .book:hover {
+      transform: scale(1.03);
+    }
+
+    .book img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .book h3 {
+      font-size: 18px;
+      margin: 10px 0 5px;
+    }
+
+    .book p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .dark-mode .book {
+      background: #333;
+      color: #eee;
+    }
+
+    .dark-mode .book p {
+      color: #ccc;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+    }
+
+    .modal-content {
+      background: white;
+      margin: 10% auto;
+      padding: 20px;
+      width: 70%;
+      border-radius: 8px;
+      position: relative;
+      text-align: left;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .closeBtn {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .dark-mode .modal-content {
+      background: #333;
+      color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📚 Technology & Computer Books</h1>
+    <button id="darkModeToggle">🌙 Toggle Dark Mode</button>
+  </header>
+
+  <div id="controls">
+    <input type="text" id="searchInput" placeholder="Search by title or author..." />
+    <button onclick="searchBooks()">🔍 Search</button>
+
+    <div id="filters">
+      <button onclick="fetchBooks('Artificial Intelligence')">AI</button>
+      <button onclick="fetchBooks('Web Development')">Web Dev</button>
+      <button onclick="fetchBooks('Cybersecurity')">Cybersecurity</button>
+      <button onclick="fetchBooks('technology computer')">All</button>
+    </div>
+  </div>
+
+  <div id="book-list">
+    <p>Loading books...</p>
+  </div>
+
+  <!-- Modal -->
+  <div id="bookModal" class="modal">
+    <div class="modal-content">
+      <span class="closeBtn" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+    </div>
+  </div>
+
+  <script>
+    window.onload = () => {
+      fetchBooks("technology computer");
+    };
+
+    function fetchBooks(query) {
+      const url = `https://www.googleapis.com/books/v1/volumes?q=${query}`;
+      const container = document.getElementById("book-list");
+      container.innerHTML = "<p>Loading books...</p>";
+
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          container.innerHTML = "";
+
+          if (!data.items || data.items.length === 0) {
+            container.innerHTML = "<p>No books found.</p>";
+            return;
+          }
+
+          data.items.forEach(book => {
+            const info = book.volumeInfo;
+            const div = document.createElement("div");
+            div.className = "book";
+
+            div.innerHTML = `
+              <img src="${(info.imageLinks && info.imageLinks.thumbnail) || 'https://via.placeholder.com/128x180'}" alt="Book Cover">
+              <h3>${info.title}</h3>
+              <p><strong>Author:</strong> ${(info.authors && info.authors.join(", ")) || "Unknown"}</p>
+              <p>${info.description ? info.description.substring(0, 80) + "..." : "No description."}</p>
+            `;
+
+            div.onclick = () => openModal(info.title, info.description || "No full description available.");
+
+            container.appendChild(div);
+          });
+        })
+        .catch(err => {
+          container.innerHTML = "<p>Error loading books.</p>";
+          console.error(err);
+        });
+    }
+
+    function searchBooks() {
+      const input = document.getElementById("searchInput").value.trim();
+      if (input) {
+        fetchBooks(input);
+      } else {
+        fetchBooks("technology computer");
+      }
+    }
+
+    function openModal(title, description) {
+      document.getElementById("modalTitle").innerText = title;
+      document.getElementById("modalDescription").innerText = description;
+      document.getElementById("bookModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("bookModal").style.display = "none";
+    }
+
+    document.getElementById("darkModeToggle").addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+  </script>
+</body>
+</html>
