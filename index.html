@@ -2,126 +2,78 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Let's Learn - Login Page</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", sans-serif;
-    }
-
-    body {
-      background: linear-gradient(135deg, #8e44ad, #3498db);
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .login-box {
-      background: #ffffff;
-      padding: 40px 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      width: 300px;
-      text-align: center;
-    }
-
-    .login-box h2 {
-      margin-bottom: 25px;
-      color: #333;
-    }
-
-    .login-box input {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-
-    .login-box input:focus {
-      border-color: #3498db;
-      outline: none;
-    }
-
-    .login-box button {
-      width: 100%;
-      padding: 12px;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 15px;
-      transition: background-color 0.3s ease;
-    }
-
-    .login-box button:hover {
-      background-color: #2980b9;
-    }
-
-    .register-text {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #555;
-    }
-
-    .register-text a {
-      color: #3498db;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .register-text a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Let's Learn</title>
+  <link href="cssFile/1index.css" rel="stylesheet">
 </head>
 
 <body>
+  <header>
+    <h1>Let's Learn</h1>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#courses">Courses</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <div class="login-box">
-    <h2>Welcome Back 👋</h2>
-    <form action="login.php" method="POST" onsubmit="return validateLogin()">
-      <input type="email" name="email" id="email" placeholder="Enter your email" required>
-      <input type="password" name="password" id="password" placeholder="Enter your password" required>
-      <button type="submit">Login</button>
-    </form>
+  <section class="hero">
+    <h2>Learn, Grow, Succeed</h2>
+    <p>Explore technology, coding, and career skills — all in one place.</p>
+    <button onclick="location.href='login.html'">Get Started</button>
+  </section>
 
-    <p class="register-text">
-      <a href="forgot.php">Forgot Password?</a>
+  <section class="features" id="features">
+    <h3>Why Let's Learn?</h3>
+    <div class="features-grid">
+      <div class="card">
+        <h4>Free Courses</h4>
+        <p>Access hundreds of free tutorials and lectures.</p>
+      </div>
+      <div class="card">
+        <h4>Tech-Focused</h4>
+        <p>Learn programming, development, and AI with ease.</p>
+      </div>
+      <div class="card">
+        <h4>Certifications</h4>
+        <p>Earn certificates and boost your resume.</p>
+      </div>
+    </div>
+  </section>
 
-    </p>
+  <section class="courses" id="courses">
+    <h3>Popular Courses</h3>
+    <div class="courses-grid">
+      <div class="card">
+        <h4>HTML & CSS</h4>
+        <p>Build responsive websites from scratch.</p>
+      </div>
+      <div class="card">
+        <h4>JavaScript</h4>
+        <p>Make your websites dynamic and interactive.</p>
+      </div>
+      <div class="card">
+        <h4>PHP + MySQL</h4>
+        <p>Create powerful backends and login systems.</p>
+      </div>
+    </div>
+  </section>
 
-    <p class="register-text">
-      Not registered? <a href="register.php">Create an account</a>
-    </p>
-  </div>
+  <footer id="contact">
+    <p>&copy; 2025 Let's Learn </p><br>
 
-  <script>
-    function validateLogin() {
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value;
+    <div id="Contact">
+      Contact Us<br>
+      Have questions or need assistance? We're here to help!<br>
+      📧 Email: support@letslearn.com
+      📞 Phone: +91-XXXXXXXXXX
+      🌐 Website: www.letslearn.com
 
-      if (!email.includes("@")) {
-        alert("Please enter a valid email.");
-        return false;
-      }
-
-      if (password.length < 6) {
-        alert("Password must be at least 6 characters.");
-        return false;
-      }
-
-      return true;
-    }
-  </script>
+      Follow us on social media to stay updated on new courses and offers.
+      <br>👍 Facebook | 📷 Instagram | 🐦 Twitter | 💼 LinkedIn
+    </div>
+  </footer>
 
 </body>
 
